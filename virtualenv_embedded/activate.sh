@@ -76,3 +76,7 @@ pydoc () {
 if [ -n "${BASH-}" ] || [ -n "${ZSH_VERSION-}" ] ; then
     hash -r 2>/dev/null
 fi
+
+if [ "$OSTYPE" "==" "cygwin" ]; then 
+    bash --rcfile <(echo '. ~/.bashrc; PS1="\n\e[34m\](env)$PS1"')
+fi
